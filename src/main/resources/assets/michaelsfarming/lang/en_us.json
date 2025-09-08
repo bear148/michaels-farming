@@ -1,4 +1,11 @@
 {
+  "itemgroup.michaelsfarming.michaels_farming": "Michael's Farming",
+
   "item.michaelsfarming.strawberry_seeds": "Strawberry Seeds",
-  "item.michaelsfarming.strawberry": "Strawberry"
+  "item.michaelsfarming.strawberry": "Strawberry",
+  "item.michaelsfarming.grapehoe": "Grape Hoe",
+  "item.michaelsfarming.rake": "Rake",
+
+  "item.michaelsfarming.crop_merchant_block": "Crop Merchant",
+  "item.michaelsfarming.raked_coarse_dirt": "Raked Coarse Dirt"
 }

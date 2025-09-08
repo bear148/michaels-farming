@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "#i#"
+  ],
+  "key": {
+    "#": "minecraft:oak_planks",
+    "E": "minecraft:emerald",
+    "i": "minecraft:iron_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "michaelsfarming:crop_merchant_block"
+  }
+}

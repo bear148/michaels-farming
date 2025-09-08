@@ -2,6 +2,8 @@ package net.micbear.michaelsfarming;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.micbear.michaelsfarming.block.ModBlocks;
+import net.micbear.michaelsfarming.item.ModItemGroups;
 import net.micbear.michaelsfarming.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +14,8 @@ public class MichaelsFarming implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
 	}
 }
