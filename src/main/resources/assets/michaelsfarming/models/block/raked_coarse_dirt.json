@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_farmland",
   "textures": {
-    "all": "michaelsfarming:block/raked_coarse_dirt"
+    "dirt": "minecraft:block/dirt",
+    "top": "michaelsfarming:block/raked_coarse_dirt"
   }
 }
