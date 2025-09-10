@@ -2,14 +2,11 @@ package net.micbear.michaelsfarming.block;
 
 import net.micbear.michaelsfarming.MichaelsFarming;
 import net.micbear.michaelsfarming.block.custom.RakedCoarseDirtBlock;
+import net.micbear.michaelsfarming.block.custom.StrawberryCropBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
@@ -22,31 +19,35 @@ import java.util.function.Function;
 */
 
 public class ModBlocks {
-    public static final Block CROP_MERCHANT_BLOCK = registerBlock("crop_merchant_block",
+    public static final Block CROP_MERCHANT_BLOCK = registerBlock(true, "crop_merchant_block",
             Block::new,
             AbstractBlock.Settings.create()
                     .strength(4f)
                     .sounds(BlockSoundGroup.WOOD));
 
-    public static final Block RAKED_COARSE_DIRT = registerBlock("raked_coarse_dirt",
+    public static final Block RAKED_COARSE_DIRT = registerBlock(false, "raked_coarse_dirt",
             RakedCoarseDirtBlock::new,
             AbstractBlock.Settings.create()
                     .strength(0.6f)
                     .sounds(BlockSoundGroup.GRAVEL));
 
+    public static final Block STRAWBERRY_CROP = registerBlock(false, "strawberry_crop",
+            StrawberryCropBlock::new,
+            AbstractBlock.Settings.copy(Blocks.WHEAT)
+                    .noCollision()
+                    .nonOpaque()
+                    .ticksRandomly());
 
-    private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+
+    private static Block registerBlock(boolean withItem, String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
         Identifier id = Identifier.of(MichaelsFarming.MOD_ID, name);
         RegistryKey<Block> blockKey = RegistryKey.of(RegistryKeys.BLOCK, id);
         Block block = Blocks.register(blockKey, factory, settings);
-        Items.register(block);
-        return block;
-    }
 
-    private static void registerBlockItem(String name, Block block) {
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MichaelsFarming.MOD_ID, name));
-        BlockItem item = new BlockItem(block, new Item.Settings().registryKey(key));
-        Registry.register(Registries.ITEM, key, item);
+        if (withItem)
+            Items.register(block);
+
+        return block;
     }
 
     public static void registerModBlocks() {
