@@ -2,6 +2,7 @@ package net.micbear.michaelsfarming.item;
 
 import net.micbear.michaelsfarming.MichaelsFarming;
 import net.micbear.michaelsfarming.block.ModBlocks;
+import net.micbear.michaelsfarming.item.custom.FertilizerItem;
 import net.micbear.michaelsfarming.item.custom.GrapeHoeItem;
 import net.micbear.michaelsfarming.item.custom.RakeItem;
 import net.minecraft.component.type.FoodComponent;
@@ -29,6 +30,8 @@ public class ModItems {
             new Item.Settings().useItemPrefixedTranslationKey());
 
     public static final Item RAKE = register("rake", RakeItem::new, new Item.Settings());
+
+    public static final Item FERTILIZER = register("fertilizer", FertilizerItem::new, new Item.Settings());
 
     public static void registerModItems() {
         MichaelsFarming.LOGGER.info("Registering mod items for: " + MichaelsFarming.MOD_ID);

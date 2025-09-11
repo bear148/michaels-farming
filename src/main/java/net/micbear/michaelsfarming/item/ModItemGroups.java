@@ -18,11 +18,11 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.michaelsfarming.michaels_farming"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModBlocks.CROP_MERCHANT_BLOCK);
-                        entries.add(ModBlocks.RAKED_COARSE_DIRT);
                         entries.add(ModItems.STRAWBERRY);
                         entries.add(ModItems.STRAWBERRY_SEEDS);
                         entries.add(ModItems.GRAPEHOE);
                         entries.add(ModItems.RAKE);
+                        entries.add(ModItems.FERTILIZER);
                     }).build());
 
     public static void registerItemGroups() {

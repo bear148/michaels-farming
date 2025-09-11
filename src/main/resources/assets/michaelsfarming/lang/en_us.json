@@ -5,7 +5,8 @@
   "item.michaelsfarming.strawberry": "Strawberry",
   "item.michaelsfarming.grapehoe": "Grape Hoe",
   "item.michaelsfarming.rake": "Rake",
+  "item.michaelsfarming.fertilizer": "Plant Fertilizer",
 
-  "item.michaelsfarming.crop_merchant_block": "Crop Merchant",
+  "block.michaelsfarming.crop_merchant_block": "Crop Merchant",
   "item.michaelsfarming.raked_coarse_dirt": "Raked Coarse Dirt"
 }

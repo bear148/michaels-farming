@@ -1,5 +1,6 @@
 package net.micbear.michaelsfarming.block.custom;
 
+import net.micbear.michaelsfarming.MichaelsFarming;
 import net.micbear.michaelsfarming.block.ModBlocks;
 import net.micbear.michaelsfarming.item.ModItems;
 import net.minecraft.block.*;
@@ -9,6 +10,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class StrawberryCropBlock extends CropBlock {
+    public boolean plantedOnVanilla = false;
+
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D),
             Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
@@ -35,6 +38,15 @@ public class StrawberryCropBlock extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(ModBlocks.RAKED_COARSE_DIRT);
+        if (floor.isOf(Blocks.FARMLAND)) {
+            plantedOnVanilla = true;
+            MichaelsFarming.LOGGER.info("BLOCK PLANTED ON VANILLA FARMLAND");
+            return true;
+        } else if (floor.isOf(ModBlocks.RAKED_COARSE_DIRT)) {
+            MichaelsFarming.LOGGER.info("BLOCK PLANTED ON MODDED FARMLAND");
+            return true;
+        }
+
+        return false;
     }
 }
